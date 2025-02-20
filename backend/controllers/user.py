@@ -6,7 +6,7 @@ from schemas.user import UserRegister
 from assets.dependencies import DatabaseDependency
 from passlib.hash import bcrypt
 import datetime
-# ctrl + righ-click on bcrypt module of passlib
+# ctrl + left-click on bcrypt module of passlib
 # got to line 620
 # change:
 # version = _bcrypt.__about__.__version__
