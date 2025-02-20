@@ -1,0 +1,9 @@
+services:
+  db:
+    image: postgres:11-alpine
+    environment:
+      POSTGRES_PASSWORD: 25648
+      POSTGRES_USER: admin
+      POSTGRES_DB: transactions_api
+    ports:
+      - "5432:5432"
