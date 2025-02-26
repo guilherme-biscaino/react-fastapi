@@ -1,34 +1,46 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
-export const Container = styled.div`
-    width: 400px;
-    height: 400px;
-
+export const Container = styled.main`
+    width: 100%;
+    margin-top: 5%;
     display: flex;
-    background: #f5f5f5;
-    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+`
 
-    &:hover{
-            box-shadow: -0em 0 2em #0066CC;
-    }
+export const Wrapper = styled.div`
+    width: 30%;
+    height: 700px; 
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-items: center;
+    background-color: #FFF;
 `
 export const Column = styled.div`
-    width: 100%;
-    align-self: center;
-`
-
-export const Row = styled.div`
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     margin: 10px 0;
     color: black;
-
 `  
-export const TitleHighlight = styled.h3`
-    color: #0099FF
-`
 
-export const ItemContainer = styled.div`
+export const Row = styled.div`
+    width: 50%;    
+    display: flex;
+    
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    color: black;
+`  
+
+export const Textstyle = styled.p`
+    font-size: 20px;
+    font-weight: 200px;
+    color: #0099FF;
 `

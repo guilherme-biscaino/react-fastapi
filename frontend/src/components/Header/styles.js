@@ -33,9 +33,9 @@ export const Wrapper = styled.div`
 `
 
 export const BuscarInputContainer = styled.div`
-    width: 175px;
-    height: 30px;
-    background: #012847;
+height: 30px;
+background: #012847;
+width: 175px;
     padding: 2px 5px;
     margin: 0px 12px;
     display: flex;
@@ -58,8 +58,14 @@ export const MenuRight = styled.a`
     font-size: 15px;
     line-height: 25px;
     color: #FFF;
+    margin-top: 5px;
     margin-right: 12px;
     text-decoration: none;
+
+
+    &:hover{
+        color: blue;
+    }
 `
 
 export const UserPicture = styled.image`

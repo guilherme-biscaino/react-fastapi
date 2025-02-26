@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from '../logo'
-
+import { MdAccountCircle} from 'react-icons/md'
 import {
     BuscarInputContainer,
     Container,
@@ -10,8 +10,7 @@ import {
     Wrapper
 
 } from './styles'
-
-import { Button } from '../Button';
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
@@ -19,17 +18,16 @@ const Header = () => {
         <Container>
             <RowContainer>
                 <div>
-                <Logo />
+                    <Link to="/home">
+                        <Logo />
+                    </Link>
                 </div>
-                <img src={ Logo } alt='' />
                 <BuscarInputContainer>
                     <Input placeholder='Buscar...'/>
                 </BuscarInputContainer>
             </RowContainer> 
             <RowContainer>
-                <MenuRight href='#' >Home</MenuRight>
-                <Button title="Entrar">Entrar</Button>
-                <Button title="Cadastrar">Cadastrar</Button>
+                <MenuRight href='#' ><MdAccountCircle size="40" /></MenuRight>
             </RowContainer> 
         </Container>
     </Wrapper>

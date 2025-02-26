@@ -1,24 +1,42 @@
 import React from 'react'
-import { Column, Container, Row, TitleHighlight, ItemContainer} from './styles'
+import { Input } from '../Input'
+import { MdBadge, MdPassword, MdPayments } from 'react-icons/md'
+import { Button } from '../Button'
 
-const ActionBlock = ( { lefticon, title, description }) => {
+import {Container, Wrapper, Row, Textstyle} from './styles'
+
+
+const ActionBlock = ( { title, isTransaction=false } ) => {
   return (
     <Container>
-      <Column>
+    <Wrapper>
         <Row>
-          {lefticon ? (<ItemContainer>{lefticon}</ItemContainer>) : null}
+          <Textstyle>
+             {isTransaction ? "Realize a sua" : "Realize o seu" } {title}
+          </Textstyle>
         </Row>
+
         <Row>
-          <TitleHighlight>
-            { title }
-          </TitleHighlight>
+          <Input placeholder="Id da conta" lefticon={<MdBadge color='black' />}/>
         </Row>
+
         <Row>
-          <p>
-          { description }
-          </p>
+          <Input placeholder="Amount" type="number" lefticon={<MdPayments color='black' />}/>
         </Row>
-      </Column>
+
+        {
+          isTransaction ? <Row><Input placeholder="Id da outra conta" lefticon={<MdBadge color='black' />}/></Row> : null
+        }
+
+        <Row>
+          <Input placeholder="Senha" type="password" lefticon={<MdPassword color='black' />}/>
+        </Row>
+        
+        <Row>
+          <Button title="Efetuar"/>
+        </Row>
+      </Wrapper>
+
     </Container>
   )
 }
