@@ -1,13 +1,8 @@
 import React from 'react'
-import { MdLogin } from 'react-icons/md'
 import Logo from '../logo'
 import {
     Container,
-    LoginLink,
-    RowContainer,
-    Wrapper,
-    ItemContainer
-
+    Wrapper
 } from './styles'
 
 
@@ -16,13 +11,6 @@ const Header = ({rightticon, name, ...rest}) => {
     <Wrapper>
         <Container>
             <Logo />
-            <RowContainer>
-                <LoginLink>
-                    Logar
-                    <ItemContainer><MdLogin /></ItemContainer>
-                    
-                </LoginLink>
-            </RowContainer> 
         </Container>
     </Wrapper>
     )

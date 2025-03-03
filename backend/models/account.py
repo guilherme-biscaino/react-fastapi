@@ -11,5 +11,5 @@ class accountModel(BaseModel):
     pk_id: Mapped[int] = mapped_column(Integer, primary_key=True)
     balance: Mapped[Decimal] = mapped_column(DECIMAL, default=0)
     user_id: Mapped[int] = mapped_column(ForeignKey('users.pk_id'))
-    user: Mapped["userModel"] = relationship(back_populates="account")
+    user: Mapped["userModel"] = relationship(back_populates="account", passive_deletes=True)
     password: Mapped[str] = mapped_column(String, nullable=False)

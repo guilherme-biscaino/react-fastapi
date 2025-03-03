@@ -57,4 +57,5 @@ async def validate_user_owns_account(query_result, session_user_id, account_pass
 
     if not bcrypt.checkpw((account_password).encode(), (query_result.password).encode()):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Account id or passsword wrong")
+
     return True

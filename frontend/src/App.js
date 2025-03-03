@@ -8,6 +8,7 @@ import {
 import { Home } from './pages/home'
 import { LoginPage } from './pages/login'
 import { OperationPage } from './pages/operation';
+import { HistoryPage } from './pages/history';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/ops/create" element={<OperationPage operation='create'/>}/>
           <Route path="/ops/delete" element={<OperationPage operation='delete'/>}/>
           <Route path="/ops/historic" element={<OperationPage operation='historic'/>}/>
+          <Route path='/get/history' element={<HistoryPage />} />
 
         </Routes>
     </Router>

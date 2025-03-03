@@ -11,8 +11,8 @@ class transactionModel(BaseModel):
     amount: Mapped[Decimal] = mapped_column(DECIMAL)
     transaction_type: Mapped[str] = mapped_column(String, nullable=False)
 
-    to_account = mapped_column(UUID, ForeignKey('accounts.id'))
-    from_account = mapped_column(UUID, ForeignKey('accounts.id'))
+    to_account = mapped_column(UUID, ForeignKey('accounts.id', ondelete="CASCADE"))
+    from_account = mapped_column(UUID, ForeignKey('accounts.id', ondelete="CASCADE"))
 
     to_account_id = relationship("accountModel", foreign_keys="transactionModel.to_account")
     from_account_id = relationship("accountModel", foreign_keys="transactionModel.from_account")

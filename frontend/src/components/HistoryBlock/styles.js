@@ -29,7 +29,7 @@ export const Column = styled.div`
 `  
 
 export const Row = styled.div`
-    width: 50%;    
+    width: 100%;    
     display: flex;
     
     flex: 1;
@@ -40,7 +40,28 @@ export const Row = styled.div`
     color: black;
 `  
 
+export const Table = styled.table`
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+`
+
+export const TableHeader = styled.tr`
+  color: #333;
+  font-weight: bold;
+`
+
+export const TableBody = styled.tbody`
+  & tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  & tr:hover {
+    background-color: #f1f1f1;
+  }
+`
+
 export const Textstyle = styled.p`
+    margin-top: 5%;
     font-size: 20px;
     font-weight: 200px;
     color: #0099FF;

@@ -14,7 +14,7 @@ app.include_router(security.router)
 origins = [
     "hhtps://localhost",
     "https://localhost:8000",
-    "https://localhost:5050"
+    "*"
 ]
 
 app.add_middleware(

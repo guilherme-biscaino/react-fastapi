@@ -16,7 +16,7 @@ JWT_SECRET = os.getenv("JWT_SECRET")
 
 router = APIRouter(tags=['user'])
 
-oauth2_schema = OAuth2PasswordBearer(tokenUrl='token')
+oauth2_schema = OAuth2PasswordBearer(tokenUrl='/login')
 
 
 @router.post('/login')
@@ -24,7 +24,7 @@ async def generate_token(session: DatabaseDependency, form_data: OAuth2PasswordR
     user = await authenticate_user(form_data.username, form_data.password, session)
 
     if not user:
-        return {'message': "error"}
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
 
     user_out = UserOut(id=user.pk_id, name=user.name)
 
