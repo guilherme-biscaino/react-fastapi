@@ -45,3 +45,14 @@ export const Textstyle = styled.p`
     font-weight: 200px;
     color: #0099FF;
 `
+
+export const SelectStyled = styled.select`
+    background: transparent;
+    color: #000;
+    border: 0;
+    height: 38px;
+    marting-left: 15px;
+    outline: none;
+    border-bottom: 1px solid black;
+
+`

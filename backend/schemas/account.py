@@ -4,7 +4,7 @@ from decimal import Decimal
 
 
 class Account(BaseModel):
-    id: Annotated[int, Field(description="account id")]
+    id: Annotated[UUID4, Field(description="account id")]
     password: Annotated[str, Field(description="account password")]
 
 
@@ -26,3 +26,8 @@ class AccountCreateOut(BaseModel):
     id: Annotated[UUID4, Field(description="accound id")]
     balance: Annotated[Decimal, Field(description="account balance")]
     password: Annotated[str, Field(description="account password")]
+
+
+class AccountGetAllOut(BaseModel):
+    id: Annotated[UUID4, Field(description="account id")]
+    balance: Annotated[Decimal, Field(description="user birthdate")]

@@ -1,7 +1,8 @@
 from fastapi import APIRouter, Body, Depends, HTTPException, status
 from assets.dependencies import DatabaseDependency
+from models.user import userModel
 from models.account import accountModel
-from schemas.account import AccountOut, AccountIn, AccountCreateIn, AccountCreateOut
+from schemas.account import AccountOut, AccountIn, AccountCreateIn, AccountCreateOut, AccountGetAllOut
 from assets.db_helpers import get_account_by_id, validate_user_owns_account
 from sqlalchemy import select, or_
 from models.transactions import transactionModel
@@ -87,3 +88,19 @@ async def account_history(
     transacoes: list[TransactionHistoryOut] = (await session.execute(smt)).scalars().all()
 
     return transacoes
+
+
+@router.get("/getall",
+            response_model=list[AccountGetAllOut])
+async def get_all_accounts(
+    session: DatabaseDependency,
+    user=Depends(get_current_user)
+):
+    smt = select(accountModel).join(
+        userModel,
+        accountModel.user_id == userModel.pk_id
+        ).filter(accountModel.user_id == user.id)
+
+    contas: list[AccountGetAllOut] = (await session.execute(smt)).scalars().all()
+
+    return contas

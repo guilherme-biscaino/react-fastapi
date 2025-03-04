@@ -33,9 +33,9 @@ export const Wrapper = styled.div`
 `
 
 export const BuscarInputContainer = styled.div`
-height: 30px;
-background: #012847;
-width: 175px;
+    height: 30px;
+    background: #012847;
+    width: 175px;
     padding: 2px 5px;
     margin: 0px 12px;
     display: flex;
@@ -83,4 +83,16 @@ export const Input = styled.input`
     border-color: transparent;
     color: #FFFFFF;
     border-radius: 10px;
+`
+
+export const SelectStyled = styled.select`
+    background: #012847;
+    border-radius: 8px;
+    color: #FFF;
+    border: 0;
+    height: 38px;
+    marting-left: 15px;
+    outline: none;
+    border-bottom: 1px solid black;
+
 `

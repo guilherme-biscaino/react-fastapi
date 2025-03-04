@@ -150,3 +150,22 @@ export const handleAccountHistory = async (data) =>  {
         console.log("Erro ao realizar o depósito")
     }
 }
+
+export const handleGetAllAccounts = async () =>  {
+    
+
+    const token = localStorage.getItem('authToken');
+    
+    try {
+        const response = await axios.get("http://localhost:8000/account/getall", {
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-type': 'application/json',
+        },
+
+    });
+        return response.data
+    } catch (error) {
+        console.log("Erro ao realizar o depósito")
+    }
+}

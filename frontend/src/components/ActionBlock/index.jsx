@@ -1,13 +1,15 @@
-import React, { use, useState } from 'react'
+import React, { useState } from 'react'
 import { Input } from '../Input'
 import { MdBadge, MdPassword, MdPayments } from 'react-icons/md'
 import { Button } from '../Button'
-
-import {Container, Wrapper, Row, Textstyle} from './styles'
+import { useForm } from 'react-hook-form'
+import {Container, Wrapper, Row, Textstyle, SelectStyled} from './styles'
 import { handleAccountCreate, handleAccountDelete, handleAccountHistory, handleDeposit, handleTransfer, handleWithdraw } from '../../service/api'
 import { useNavigate } from 'react-router-dom'
 
 const transactionOptions = ["saque", "deposito", "transação"]
+const accounts = JSON.parse(localStorage.getItem('userAccounts')) || []
+
 
 const ActionBlock = ( { title, isTransaction=false } ) => {
   const [operationResult, setOperationResult] = useState(null);
@@ -117,7 +119,14 @@ const ActionBlock = ( { title, isTransaction=false } ) => {
 
           {!operationResult && !isSuccess && (
           <>
-            {title !== "create" && <Row><Input placeholder="Id da conta" onChange={(e) => setInputs({ ...inputs, fromAccount: e.target.value })} lefticon={<MdBadge color='black' />} /></Row>}
+            {title !== "create" && <Row>
+              <SelectStyled value={inputs.fromAccount} onChange={(e) => setInputs({ ...inputs, fromAccount: e.target.value })}>
+                <option value="">Selecione a conta</option>
+                  {accounts.map((account, index) => (
+                    <option key={index} value={account.id}>{account.id}</option>
+                  ))}
+              </SelectStyled>
+              </Row>}
 
             {transactionOptions.includes(title) && <Row><Input placeholder="Amount" type="number" onChange={(e) => setInputs({ ...inputs, amount: e.target.value })} lefticon={<MdPayments color='black' />} /></Row>}
 

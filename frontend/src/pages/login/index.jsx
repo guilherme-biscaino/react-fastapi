@@ -6,6 +6,7 @@ import { MdLock, MdBadge } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import axios from 'axios';
+import { handleGetAllAccounts } from '../../service/api';
 
 const LoginPage = () => {
     const [cpf, setCpf] = useState('');
@@ -44,6 +45,10 @@ const LoginPage = () => {
         if (response.data.access_token) {
           localStorage.setItem('authToken', response.data.access_token);  // Save token
           localStorage.setItem('tokenType', response.data.token_type);
+          const accountsResult = await handleGetAllAccounts();
+          if (accountsResult){
+            localStorage.setItem('userAccounts', JSON.stringify(accountsResult))
+          }
           setMessage('Login successful!');
           navigate('/home');
         }
